@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ProductApp.Models.Product>
+
+<h1>Product List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Tag Helper for navigation -->
+<a asp-controller="Home" asp-action="Index">Back to Home</a>
+
+<!-- Tag Helper for form post -->
+<form asp-controller="Product" asp-action="Index" method="post">
+    <input type="text" name="searchTerm" placeholder="Search..." />
+    <button type="submit">Search</button>
+</form>
