@@ -4,16 +4,21 @@ using ProductApp.Models; // Make sure this matches your namespace
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using ProductApp.Services;
 
 namespace ProductApp.Controllers
 {
     public class ProductController : Controller
     {
         private readonly ILogger<ProductController> _logger;
+        private readonly ITimeProvider _timeProvider;
 
-        public ProductController(ILogger<ProductController> logger)
+        public ProductController(
+            ILogger<ProductController> logger,
+            ITimeProvider timeProvider)
         {
             _logger = logger;
+            _timeProvider = timeProvider;
         }
 
         // GET: /Product or /Product/Index
@@ -48,6 +53,15 @@ namespace ProductApp.Controllers
 
             return View(products);
         }
+
+        [HttpGet]
+        public IActionResult Now()
+        {
+            var current = _timeProvider.GetCurrentTime();
+            _logger.LogInformation("Now() requested at {Current}", current);
+            return View(model: current); // pass DateTime to the view
+        }
+
 
         // Private helper method to get sample data
         private List<Product> GetProducts()
