@@ -35,3 +35,20 @@ The service is injected via constructor injection into `ProductController`, whic
 - Clear separation of concerns (controllers focus on HTTP flow; services hold domain logic).
 - Testability (services can be unit tested in isolation and mocked/substituted if needed).
 - Maintainability (loose coupling between components).
+
+# Assignment 3
+
+## Design Note: Routes
+
+- / or /Home/Index = Home page
+- /Home/Privacy = Privacy page
+- /hello = HelloWorld index page
+- /hello/welcome = Welcome page with default name "Guest" and numTimes=1
+- /hello/welcome/{name} = Welcome page for a specific name
+- /hello/welcome/{name}/{numTimes} = Welcome page for a specific name repeated numTimes
+- /movies = List all movies
+- /movies/details/{id} = Movie details
+- /movies/create = Create movie form
+- /movies/edit/{id} = Edit movie form
+- /movies/delete/{id} = Delete confirmation
+- /Product/Now = Current time page
