@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ProductApp.Models; // Make sure this matches your namespace
+using ProductApp.Models;
 using System.Collections.Generic;
 using System;
 using System.Linq;
